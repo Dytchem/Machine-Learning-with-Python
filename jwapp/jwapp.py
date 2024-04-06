@@ -243,7 +243,7 @@ class StudentList:
 
     def scores_detail(self, name):
         """
-        返回当前学生列表下所有学生名称中含有name的一门课程的详尽成绩信息，返回为dict
+        返回当前学生列表下所有学生名称中含有name的一门课程的详尽成绩信息，返回为DataFrame
         """
         data = pd.DataFrame(
             columns=[
