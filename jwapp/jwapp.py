@@ -57,7 +57,7 @@ class Student:
         self.token = (
             requests.get(
                 "http://jwapp.xjtu.edu.cn/app/index",
-                params={"code": "", "employeeNo": self.id},
+                params={"code": "1", "employeeNo": self.id},
                 headers=Student.headers,
                 allow_redirects=False,
             )
