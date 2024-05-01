@@ -181,6 +181,8 @@ class Address:
         """
         初始化一个地址器
         """
+        if (isinstance(enquirer, int) or isinstance(enquirer, str)):
+            enquirer = Student(enquirer)
         self.enquirer = enquirer
         self.path = "/"
 
@@ -226,6 +228,7 @@ class Address:
         else:
             for i in params:
                 self.goto(i)
+        return self
 
 
 class StudentList:
@@ -237,6 +240,13 @@ class StudentList:
         """
         用学生学号列表ids初始化学生列表
         """
+        if (isinstance(ids, Address)):
+            ids = ids.list()["objectId"]
+        elif (isinstance(ids, pd.DataFrame)):
+            if ("objectId" in ids.columns):
+                ids = ids["objectId"]
+            elif ("xh" in id.columns):
+                ids = ids["xh"]
         self.students = []
         for i in ids:
             self.students.append(Student(i))
@@ -269,3 +279,6 @@ class StudentList:
         for s in self.students:
             data.loc[len(data)] = {**s.info, **s.score_detail(s.get_course(name))}
         return data
+
+if __name__ == "__main__":
+    pass
