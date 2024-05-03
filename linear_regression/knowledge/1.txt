@@ -1,0 +1,24 @@
+PaddlePaddle（现在通常称为PaddlePaddle 2.x或Paddle）是一个深度学习框架，它提供了多种优化算法来帮助训练神经网络。以下是一些在PaddlePaddle的paddle.optimizer模块中常见的优化算法：
+
+    SGD（随机梯度下降）：
+        paddle.optimizer.SGD：使用固定的学习率进行参数更新。
+    Momentum：
+        paddle.optimizer.Momentum：在SGD的基础上引入动量项，以加速在相关方向上的移动并抑制震荡。
+    Adam：
+        paddle.optimizer.Adam：自适应学习率优化算法，结合了Momentum和RMSprop的思想。Adam通过计算梯度的一阶矩估计和二阶矩估计来调整每个参数的学习率。
+    AdamW（带权重衰减的Adam）：
+        paddle.optimizer.AdamW：在Adam算法的基础上增加了权重衰减（L2正则化），有助于防止过拟合。
+    Adagrad：
+        paddle.optimizer.Adagrad：根据每个参数的历史梯度自适应地调整学习率。
+    RMSprop：
+        paddle.optimizer.RMSprop：与Adagrad类似，但使用指数衰减平均来丢弃遥远的历史梯度。
+    Adadelta：
+        paddle.optimizer.Adadelta：Adadelta是Adagrad的一个扩展，旨在解决Adagrad学习率单调下降的问题。它使用梯度平方的指数衰减平均值来调整学习率。
+    Ftrl：
+        paddle.optimizer.Ftrl：FTRL（Follow-the-Regularized-Leader）优化算法，结合了在线学习和正则化的优点。
+    LARS（Layer-wise Adaptive Rate Scaling）：
+        LARS本身可能不是paddle.optimizer中的直接优化器，但它是用于大规模训练的一种技术，可以与其他优化器（如SGD、Momentum）结合使用。
+    Lamb（Layer-wise Adaptive Moments optimizer for Batch training）：
+        paddle.optimizer.Lamb：这是Facebook提出的一种针对大规模分布式训练的优化器，与Adam和LARS相关。但请注意，PaddlePaddle可能并不直接提供Lamb优化器，您可能需要自己实现或使用第三方实现。
+
+这些优化器都提供了不同的参数调整策略，以适应不同的训练场景和模型需求。在选择优化器时，您可能需要根据您的任务、数据集和模型架构进行试验和调整。
