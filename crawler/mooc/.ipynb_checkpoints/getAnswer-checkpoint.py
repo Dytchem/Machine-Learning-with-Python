@@ -1,5 +1,5 @@
 import json
-
+from pprint import pprint
 import requests
 
 
@@ -27,6 +27,7 @@ def getAnswer(aId):
         for j in L:
             print(j, end=" ")
         print()
+    pprint(q)
 
 
 if __name__ == "__main__":
